@@ -1,0 +1,74 @@
+{%extends "home/index.html" %}
+{% load humanize l10n %}
+{%block content%}
+<div class="main-imovel">
+    <div id="vivareal">
+        {% for v in vivareal %}
+            <div>
+                <div class="box">
+                    <div class="photo">
+                        <div class="box" style="justify-content: center; margin-bottom: 0">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-wrap="false" data-interval="false">
+                              <ol class="carousel-indicators">
+                                  {% for i in v.images%}
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}" class="active"></li>
+                                  {%endfor%}
+                              </ol>
+                              <div class="carousel-inner">
+                                  {% for img in v.images%}
+                                    <div class="carousel-item {% if forloop.first %}active{%endif%}">
+                                      <img class="d-block w-100" src="{{img}}">
+                                    </div>
+                                  {%endfor%}
+                              </div>
+                              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Anterior</span>
+                              </a>
+                              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Próximo</span>
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <a href="{% url 'vivadetail' pk=v.id %}">
+                        <h2 class="title">Apartamento para {% if v.pricingInfos.businessType == "SALE" %} Venda {% else %} Aluguel {%endif%}</h2>
+                        </a>
+                        <ul class="infos">
+                            <li>{{v.bedrooms}} quartos</li>
+                            <li>{{v.bathrooms}} banheiros</li>
+                            <li>{{v.usableAreas}} m2</li>
+                            <li>{{v.parkingSpaces}} vagas</li>
+                        </ul>
+                        Valor: R$ {% if v.pricingInfos.businessType == 'RENTAL'  %}{{v.pricingInfos.rentalTotalPrice|intcomma}}/mês{%else%}{{v.pricingInfos.price|intcomma}}{%endif%}
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
+        {% if vivareal.has_other_pages %}
+            <ul class="pagination">
+            {% if vivareal.has_previous %}
+              <li><a href="?page={{ vivareal.previous_page_number }}" onclick="filterByvivareal()">&laquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in vivareal.paginator.page_range %}
+              {% if vivareal.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+                <li><a href="?page={{ i }}" onclick="filterByvivareal()">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if vivareal.has_next %}
+              <li><a href="?page={{ vivareal.next_page_number }}" onclick="filterByvivareal()">&raquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}

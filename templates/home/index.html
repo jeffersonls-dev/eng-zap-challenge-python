@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GrupoZap inventary</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"?>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+    <img src="https://v.fastcdn.co/t/3854b641/7a7f287a/1558965795-30797501-220x38-logo.png"/>
+    <h1>Teste de engenharia do GrupoZap</h1>
+    <h3>Clique abaixo para filtrar os imóveis por portal</h3>
+    <a href="{%url 'vivareal'%}" onclick="filterByVivareal()">
+        <img class="logo logo-viva" src="http://cdnfiles.vivareal.com/emails/v2/logo-vivareal.png"/>
+    </a>
+    <a href="{%url 'zap'%}" onclick="filterByZap()">
+        <img class="logo" src="http://cdnfiles.vivareal.com/emails/v2/logo_zap.png"/>
+    </a>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
