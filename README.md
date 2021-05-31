@@ -1,7 +1,7 @@
 # eng-zap-challenge-python
  Projeto desenvolvido utilizando Python c/ Django
  
-#Opção A: Fazer uma interface de interação (frontend/apps)
+# Opção A: Fazer uma interface de interação (frontend/apps)
 Reformule a camada de apresentação e visual do site legado da maneira que preferir, com alguns comportamentos obrigatórios:
 
 Quando se clicar em cima de um imóvel, deve apresentar uma tela de detalhe com as informações dele.
@@ -16,7 +16,7 @@ Você deverá usar como input o source-1.json (~400 registros):
 
 http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/sources/source-1.json (CORS friendly)
 
-#Ferramentas utilizadas
+## Ferramentas utilizadas
 
 Versão do Python = 3.7.4
 
@@ -24,7 +24,7 @@ Versão do Django = 3.2.3
 
 Versão de Virtualenv = 20.1.0 
 
-#Como rodar!
+## Como rodar!
 Instalar o Python depois rodar o comando:  pip install virtualenv
 
 depois criar uma virtualenv utilizando o comando: virtualenv zap
