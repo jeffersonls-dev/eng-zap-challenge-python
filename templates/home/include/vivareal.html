@@ -8,12 +8,7 @@
                 <div class="box">
                     <div class="photo">
                         <div class="box" style="justify-content: center; margin-bottom: 0">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-wrap="false" data-interval="false">
-                              <ol class="carousel-indicators">
-                                  {% for i in v.images%}
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}" class="active"></li>
-                                  {%endfor%}
-                              </ol>
+                            <div id="carousel{{v.id}}" class="carousel slide" data-ride="false" data-wrap="false" data-interval="false">
                               <div class="carousel-inner">
                                   {% for img in v.images%}
                                     <div class="carousel-item {% if forloop.first %}active{%endif%}">
@@ -21,11 +16,11 @@
                                     </div>
                                   {%endfor%}
                               </div>
-                              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                              <a class="carousel-control-prev" href="#carousel{{v.id}}" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Anterior</span>
                               </a>
-                              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                              <a class="carousel-control-next" href="#carousel{{v.id}}" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Próximo</span>
                               </a>
